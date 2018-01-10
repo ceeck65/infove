@@ -48,11 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'public' => [
+        'web' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/assets'),
             'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
+            'visibility' => 'assets',
         ],
 
         's3' => [

@@ -14,6 +14,8 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +64,7 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
-            'schema' => 'public',
+            'schema' => 'web',
             'sslmode' => 'prefer',
         ],
 

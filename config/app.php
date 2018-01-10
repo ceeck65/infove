@@ -179,6 +179,8 @@ return [
 
         Ixudra\Curl\CurlServiceProvider::class,
 
+        Laralib\L5scaffold\GeneratorsServiceProvider::class,
+
     ],
 
     /*

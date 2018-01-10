@@ -37,4 +37,34 @@ class Collections
 
         return $response;
     }
+
+    public function cneFormat($data)
+    {
+        $position = strpos($data, 'align="left">', strpos($data, 'dula:')) + 13;
+        $response['cedula'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Nombre
+        $position = strpos($data, 'align="left"><b>', strpos($data, 'Nombre:')) + 16;
+        $response['nombre'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Estado
+        $position = strpos($data, 'align="left">', strpos($data, 'Estado:')) + 13;
+        $response['estado'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Municipio
+        $position = strpos($data, 'align="left">', strpos($data, 'Municipio:')) + 13;
+        $response['municipio'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Parroquia
+        $position = strpos($data, 'align="left">', strpos($data, 'Parroquia:')) + 13;
+        $response['parroquia'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Centro
+        $position = strpos($data, '"// 0000FF">', strpos($data, 'Centro:')) + 10;
+        $response['centro'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        // Obtener Dirección
+        $position = strpos($data, '"// 0000FF">', strpos($data, 'Direcci')) + 10;
+        $response['direccion'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+        $response['servicio'] = 'no';
+        // Obtener servicio
+        $position = strpos($data, 'color="// ', strpos($data, 'SERVICIO ELECTORAL')) + 16;
+        $response['servicio'] = trim(substr($data, ($position), (strpos($data, '<', ($position)) - ($position))));
+
+        return $response;
+    }
 }
